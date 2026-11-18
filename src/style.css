@@ -1,0 +1,84 @@
+:root {
+  font-family: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  color: #14202b;
+  background: #f2f6f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #14202b;
+  --paper: #f2f6f8;
+  --card: #fff;
+  --line: #d5dee4;
+  --muted: #566774;
+  --wash: #1f6f9c;
+  --wash-dark: #164f70;
+  --danger: #b3261e;
+  --display: "Bricolage Grotesque", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: var(--paper); font-size: 16px; line-height: 1.5; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--wash); outline-offset: 2px; }
+[hidden] { display: none !important; }
+
+.top { padding: 16px 20px 0; background: var(--ink); color: #fff; }
+.top-inner { display: flex; max-width: 1180px; align-items: center; justify-content: space-between; margin: 0 auto; }
+.top h1 { margin: 0 0 12px; font: 700 28px/1.1 var(--display); }
+.toolbar-actions { display: flex; align-items: center; gap: 8px; }
+.tabs { display: flex; max-width: 1180px; gap: 4px; margin: 0 auto; }
+.tabs button { border: 0; border-radius: 8px 8px 0 0; padding: 10px 16px; background: none; color: #b8c7d2; }
+.tabs button[aria-selected="true"] { background: var(--paper); color: var(--ink); }
+.top-signout { margin-bottom: 12px; border-color: #657985 !important; color: #fff !important; }
+
+main { max-width: 1180px; margin: 0 auto; padding: 24px 20px; }
+.toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.toolbar h2 { margin: 0; font: 700 22px/1.2 var(--display); }
+button.primary { border: 0; border-radius: 8px; padding: 9px 16px; background: var(--wash); color: #fff; font-weight: 600; }
+button.primary:hover { background: var(--wash-dark); }
+button.plain { border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; background: transparent; color: var(--ink); }
+button.plain:hover { border-color: var(--ink); }
+button.danger { color: var(--danger); }
+button.danger:hover { border-color: var(--danger); }
+
+.board { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); align-items: start; gap: 16px; }
+.col { border-radius: 12px; padding: 12px; background: #e6edf1; }
+.col header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; border-bottom: 3px solid var(--c); padding: 2px 4px 10px; }
+.col h3 { margin: 0; font: 700 18px var(--display); }
+.col .count { color: var(--c); font: 700 28px/1 var(--display); }
+.order { margin-bottom: 10px; border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: var(--card); }
+.order .who { font-weight: 600; }
+.order .meta, .order .date, .muted { color: var(--muted); font-size: 14px; }
+.order .total { margin: 6px 0 2px; font: 700 20px var(--display); }
+.actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.actions .primary { flex-basis: 100%; }
+.empty { margin: 0; padding: 4px; color: var(--muted); font-size: 14px; }
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+table { width: 100%; border-collapse: collapse; }
+th, td { border-bottom: 1px solid var(--line); padding: 12px 16px; text-align: left; white-space: nowrap; }
+th { color: var(--muted); font-size: 14px; font-weight: 600; }
+tr:last-child td { border-bottom: 0; }
+td.row-actions { text-align: right; }
+td.row-actions button { margin-left: 6px; }
+.table-empty { padding: 24px; color: var(--muted); }
+
+.dialog-fields { display: grid; gap: 14px; }
+label { display: grid; gap: 4px; font-size: 14px; font-weight: 500; }
+input, select { min-width: 0; border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px; background: #fff; color: var(--ink); }
+.auth-actions, .form-actions { display: flex; justify-content: flex-end; gap: 8px; }
+.message, .form-error { min-height: 1.4em; margin: 0; color: var(--danger); font-size: 14px; }
+.message:empty { display: none; }
+
+dialog { width: min(440px, calc(100% - 32px)); border: 0; border-radius: 12px; padding: 0; color: var(--ink); box-shadow: 0 12px 40px rgb(20 32 43 / 30%); }
+dialog::backdrop { background: rgb(20 32 43 / 50%); }
+dialog form { display: grid; gap: 14px; padding: 20px; }
+dialog h2 { margin: 0; font: 700 22px var(--display); }
+
+@media (max-width: 560px) {
+  .top h1 { font-size: 24px; }
+  main { padding: 16px 14px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  button.primary { transition: background 0.15s; }
+}

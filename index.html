@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#14202b" />
+    <meta name="description" content="Aplikasi pencatatan pesanan laundry." />
+    <title>Catatan Laundry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="top-inner">
+        <h1>Catatan Laundry</h1>
+        <button class="plain top-signout" id="account-action" type="button">Masuk</button>
+      </div>
+      <nav class="tabs" id="tabs" role="tablist" aria-label="Menu" hidden>
+        <button role="tab" data-view="pesanan" aria-selected="true">Pesanan</button>
+        <button role="tab" data-view="pelanggan" aria-selected="false">Pelanggan</button>
+        <button role="tab" data-view="layanan" aria-selected="false">Layanan</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="app-view" hidden>
+        <div class="toolbar">
+          <h2 id="judul"></h2>
+          <div class="toolbar-actions">
+            <button class="plain" id="edit-cta" type="button" hidden>Masuk untuk mengedit</button>
+            <button class="primary" id="tambah" type="button" hidden></button>
+          </div>
+        </div>
+        <p id="app-message" class="message" role="status"></p>
+        <div id="board" class="board"></div>
+        <div id="tabel" class="table-wrap" hidden></div>
+      </section>
+
+      <dialog id="auth-dialog">
+        <form id="auth-form">
+          <h2>Masuk untuk mengedit</h2>
+          <p class="muted">Papan pesanan dapat dilihat tanpa login. Masuk untuk mengelola data.</p>
+          <label>Email
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+          <label>Kata sandi
+            <input name="password" type="password" autocomplete="current-password" minlength="6" required />
+          </label>
+          <p id="auth-message" class="message" role="status"></p>
+          <div class="auth-actions">
+            <button class="plain" type="button" id="auth-cancel">Tutup</button>
+            <button class="primary" type="submit" data-auth-action="login">Masuk</button>
+          </div>
+        </form>
+      </dialog>
+
+      <dialog id="dlg">
+        <form id="f">
+          <h2 id="dlg-judul"></h2>
+          <div id="dlg-isi" class="dialog-fields"></div>
+          <p class="form-error" id="dlg-error" role="alert"></p>
+          <div class="form-actions">
+            <button type="button" class="plain" id="batal">Batal</button>
+            <button type="submit" class="primary">Simpan</button>
+          </div>
+        </form>
+      </dialog>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
